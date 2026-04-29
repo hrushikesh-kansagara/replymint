@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "ReplyMint",
+  "version": "1.0",
+  "description": "Your witty LinkedIn comment co-pilot 🌱",
+  "permissions": ["activeTab", "storage", "scripting", "tabs"],
+  "host_permissions": ["https://www.linkedin.com/*", "https://api.anthropic.com/*"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ReplyMint",
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src https://api.anthropic.com;"
+  }
+}

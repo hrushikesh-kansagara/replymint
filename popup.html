@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ReplyMint</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <div id="loading">
+    <div class="spinner"></div>
+    <div class="loading-text">Minting angles...</div>
+  </div>
+
+  <div class="header">
+    <div class="brand">
+      <div class="brand-icon">🌱</div>
+      ReplyMint
+    </div>
+    <button class="dark-toggle" id="dark-toggle">☀ / ☾</button>
+  </div>
+
+  <div id="error-box"></div>
+
+  <!-- Setup -->
+  <div id="setup-section">
+    <p>Welcome to ReplyMint ✦<br>Paste your Anthropic API key to get started. Stored locally, never shared.</p>
+    <input type="password" id="api-key-input" placeholder="sk-ant-api03-..." autocomplete="off"/>
+    <button class="btn-primary" id="save-key-btn" style="width:100%;margin-top:10px;">Get started →</button>
+    <p style="margin-top:8px;font-size:10px;color:var(--text-3);">Get your key at console.anthropic.com</p>
+  </div>
+
+  <!-- Main -->
+  <div id="main-section" style="display:none;">
+
+    <!-- Paste view -->
+    <div id="hint-box" style="display:none;">
+      <div class="label">Paste post text</div>
+      <textarea id="paste-input" placeholder="Copy a LinkedIn post and paste it here..."></textarea>
+      <button class="btn-primary" id="analyse-btn" style="width:100%;margin-top:10px;">Analyse post ✦</button>
+      <div class="how-to">
+        <div class="how-to-title">How to use ReplyMint</div>
+        <div class="how-to-steps">
+          1️⃣ Find a post on LinkedIn<br>
+          2️⃣ Select all text → Copy (Cmd+C)<br>
+          3️⃣ Paste here (Cmd+V)<br>
+          4️⃣ Hit Analyse — get your angles ✦
+        </div>
+      </div>
+    </div>
+
+    <!-- Results view -->
+    <div id="content-area" style="display:none;">
+
+      <div style="padding: 12px 16px 0; display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+        <div class="label" style="margin:0;">Quick take</div>
+        <button class="new-post-link" id="new-post-btn">← New post</button>
+      </div>
+
+      <div class="section">
+        <div id="tldr-box"></div>
+      </div>
+
+      <div class="divider" style="margin:10px 0;"></div>
+
+      <div class="section">
+        <div class="label">Your vibe</div>
+        <div class="tone-row">
+          <button class="tone-chip" data-tone="Professional">Professional</button>
+          <button class="tone-chip active" data-tone="Casual">Casual</button>
+          <button class="tone-chip" data-tone="Curious">Curious</button>
+          <button class="tone-chip" data-tone="Bold">Bold</button>
+        </div>
+      </div>
+
+      <div class="divider" style="margin:10px 0;"></div>
+
+      <div class="section">
+        <div class="label">Pick your angle</div>
+        <div id="angles-container"></div>
+      </div>
+
+      <div class="section" style="margin-top:6px;">
+        <div class="label">Polish it</div>
+        <div class="polish-row">
+          <button class="polish-btn" data-style="shorter">Shorter</button>
+          <button class="polish-btn" data-style="punchier">Punchier</button>
+          <button class="polish-btn" data-style="more formal">More formal</button>
+        </div>
+        <div id="polished-box"></div>
+      </div>
+
+      <div class="footer">
+        <button class="btn-ghost" id="refresh-btn">Retry ↺</button>
+        <button class="btn-primary" id="copy-btn" style="flex:1;">Copy starter ✦</button>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+    <div id="history-section">
+      <div class="label" style="margin-bottom:6px;">Recent activity</div>
+      <div id="history-list"><div class="empty-history">Nothing here yet — go mint some replies! 🌱</div></div>
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
