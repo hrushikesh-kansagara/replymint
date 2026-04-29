@@ -34,7 +34,7 @@ Since this extension isn't on the Chrome Web Store yet, install it manually:
 
 1. **Download or clone this repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/replymint.git
+   git clone https://github.com/hrushikesh-kansagara/replymint.git
    ```
 
 2. **Open Chrome Extensions page**
